@@ -1,0 +1,17 @@
+# Chromapath Dependencies
+
+# Core
+numpy>=1.21.0
+opencv-python>=4.5.0
+scikit-learn>=1.0.0
+
+# Visualization
+matplotlib>=3.5.0
+
+# GUI
+PyQt5>=5.15.0
+
+# Optional: for development
+# pytest>=7.0.0
+# black>=22.0.0
+# flake8>=4.0.0
