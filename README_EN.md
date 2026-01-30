@@ -75,7 +75,7 @@ Step 5: Visualize Network (Network Viewer)
 
 ```bash
 # Clone the project
-git clone https://github.com/yourusername/chromapath.git
+https://github.com/CodeSoul-co/Chromapath.git
 cd chromapath
 
 # Create virtual environment (recommended)
