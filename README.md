@@ -75,7 +75,7 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/yourusername/chromapath.git
+https://github.com/CodeSoul-co/Chromapath.git
 cd chromapath
 
 # 创建虚拟环境 (推荐)
