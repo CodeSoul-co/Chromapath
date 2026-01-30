@@ -1,4 +1,8 @@
-# Chromapath
+<p align="center">
+   <img src="chromapath.png" alt="Chromapath" width="320" />
+ </p>
+ 
+ # Chromapath
 
 **中文** | [English](README_EN.md)
 
