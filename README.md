@@ -2,208 +2,213 @@
    <img src="chromapath.png" alt="Chromapath" width="320" />
  </p>
  
- # Chromapath
+# Chromapath
 
-**中文** | [English](README_EN.md)
+[中文](README_ZH.md) | **English**
 
-图像颜色分析工具包 - 用于提取、分析和可视化图像中的颜色信息。
+A comprehensive Python toolkit for image color analysis, palette extraction, and visualization.
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## 工具概览
+## Overview
 
-本工具包包含 5 个功能模块，形成一个完整的颜色分析流水线：
+This toolkit contains 5 functional modules that form a complete color analysis pipeline:
 
-| 工具 | 功能 | 输入 | 输出 |
-|------|------|------|------|
-| **Palette Generator** | 为每张图片生成色卡 | 图片文件夹 | 每张图片对应的色卡图 |
-| **Color Extractor** | 分析多张图片的整体颜色分布 | 图片文件夹 | 颜色列表 + 百分比 |
-| **Co-occurrence Analyzer** | 计算颜色共现频率 | 图片文件夹 + 颜色列表 | 共现频率矩阵 |
-| **Network Viewer** | 可视化颜色关系网络 | 颜色数据 + 频率矩阵 | 网络关系图 |
-| **Genetic Optimizer** | 交互式优化配色方案 | 单张图片 | 优化后的配色方案 |
+| Tool | Function | Input | Output |
+|------|----------|-------|--------|
+| **Palette Generator** | Generate color cards for each image | Image folder | Color palette images |
+| **Color Extractor** | Analyze overall color distribution | Image folder | Color list + percentages |
+| **Co-occurrence Analyzer** | Calculate color co-occurrence frequency | Image folder + color list | Frequency matrix |
+| **Network Viewer** | Visualize color relationships | Color data + matrix | Network graph |
+| **Genetic Optimizer** | Interactive color scheme optimization | Single image | Optimized color scheme |
 
-## 典型工作流程
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                          完整分析流程                                    │
-└─────────────────────────────────────────────────────────────────────────┘
-
-步骤 1: 准备图片
-    └── 将待分析的图片放入一个文件夹
-
-步骤 2: 生成色卡 (Palette Generator)
-    ├── 输入: 图片文件夹
-    ├── 设置: 提取颜色数量、灰度过滤阈值
-    └── 输出: 每张图片的色卡 (保存为 PNG)
-
-步骤 3: 提取整体颜色 (Color Extractor)
-    ├── 输入: 图片文件夹
-    ├── 处理: 对所有图片进行 K-Means 聚类
-    └── 输出: 颜色列表 + 占比百分比
-            例如: [([255, 128, 64], 0.25), ([32, 64, 128], 0.18), ...]
-
-步骤 4: 计算共现频率 (Co-occurrence Analyzer)
-    ├── 输入: 图片文件夹 + 步骤3的颜色列表
-    ├── 处理: 统计哪些颜色经常同时出现
-    └── 输出: N×N 共现频率矩阵
-
-步骤 5: 可视化网络 (Network Viewer)
-    ├── 输入: 颜色数据 + 频率矩阵
-    └── 输出: 颜色关系网络图
-            - 节点 = 颜色 (大小表示占比)
-            - 边 = 共现关系 (红色=强关联)
-```
-
-### 独立使用: 遗传算法优化 (Genetic Optimizer)
+## Workflow
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                       遗传算法配色优化                                   │
+│                        Complete Analysis Pipeline                        │
 └─────────────────────────────────────────────────────────────────────────┘
 
-1. 打开一张图片
-2. 系统生成多个配色方案 (种群)
-3. 你为每个方案打分 (0-10)
-4. 系统根据评分进化出下一代方案
-5. 重复 3-4 直到满意
-6. 导出最佳配色方案
+Step 1: Prepare Images
+    └── Put images to analyze in a folder
+
+Step 2: Generate Palettes (Palette Generator)
+    ├── Input: Image folder
+    ├── Settings: Number of colors, gray threshold
+    └── Output: Color palette for each image (PNG)
+
+Step 3: Extract Overall Colors (Color Extractor)
+    ├── Input: Image folder
+    ├── Process: K-Means clustering on all images
+    └── Output: Color list + percentages
+            e.g., [([255, 128, 64], 0.25), ([32, 64, 128], 0.18), ...]
+
+Step 4: Calculate Co-occurrence (Co-occurrence Analyzer)
+    ├── Input: Image folder + color list from Step 3
+    ├── Process: Count which colors appear together
+    └── Output: N×N co-occurrence frequency matrix
+
+Step 5: Visualize Network (Network Viewer)
+    ├── Input: Color data + frequency matrix
+    └── Output: Color relationship network graph
+            - Nodes = Colors (size = percentage)
+            - Edges = Co-occurrence (red = strong correlation)
 ```
 
-## 安装
+### Standalone: Genetic Algorithm Optimizer
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    Genetic Algorithm Color Optimization                  │
+└─────────────────────────────────────────────────────────────────────────┘
+
+1. Open an image
+2. System generates multiple color schemes (population)
+3. Rate each scheme (0-10)
+4. System evolves next generation based on ratings
+5. Repeat 3-4 until satisfied
+6. Export the best color scheme
+```
+
+## Installation
 
 ```bash
-# 克隆项目
+<<<<<<< HEAD
+# Clone the project
 git clone https://github.com/yourusername/chromapath.git
+=======
+# 克隆项目
+https://github.com/CodeSoul-co/Chromapath.git
+>>>>>>> b7d46337a2a497d3ecc733bf7a1032cb3fbdfd1d
 cd chromapath
 
-# 创建虚拟环境 (推荐)
+# Create virtual environment (recommended)
 conda create -n color python=3.10
 conda activate color
 
-# 安装依赖
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-## 快速开始
+## Quick Start
 
 ```bash
-# 启动主界面
+# Launch main interface
 python main.py
 
-# 或直接启动特定工具
-python main.py --tool palette      # 色卡生成
-python main.py --tool extractor    # 颜色提取
-python main.py --tool cooccurrence # 共现分析
-python main.py --tool network      # 网络可视化
-python main.py --tool genetic      # 遗传算法优化
+# Or launch specific tool directly
+python main.py --tool palette      # Palette Generator
+python main.py --tool extractor    # Color Extractor
+python main.py --tool cooccurrence # Co-occurrence Analyzer
+python main.py --tool network      # Network Viewer
+python main.py --tool genetic      # Genetic Optimizer
 ```
 
-## 详细使用说明
+## Detailed Usage
 
-### 1. Palette Generator (色卡生成器)
+### 1. Palette Generator
 
-**用途**: 批量为图片生成色卡
+**Purpose**: Batch generate color palettes for images
 
-**操作步骤**:
-1. 选择包含图片的文件夹
-2. 选择色卡输出文件夹
-3. 设置参数:
-   - **灰度过滤阈值**: 过滤接近灰色的像素 (默认 1)
-   - **提取颜色数量**: 每张图提取多少种主色 (默认 8)
-4. 点击 "Generate Palettes"
+**Steps**:
+1. Select folder containing images
+2. Select output folder for palettes
+3. Set parameters:
+   - **Gray Threshold**: Filter near-gray pixels (default: 1)
+   - **Number of Colors**: Colors to extract per image (default: 8)
+4. Click "Generate Palettes"
 
-### 2. Color Extractor (颜色提取器)
+### 2. Color Extractor
 
-**用途**: 分析多张图片的整体颜色分布
+**Purpose**: Analyze overall color distribution across multiple images
 
-**操作步骤**:
-1. 选择图片文件夹
-2. 设置颜色数量 (默认 18)
-3. 点击 "Analyze Images"
-4. 查看颜色分布柱状图
-5. 复制底部的颜色数据 (用于下一步)
+**Steps**:
+1. Select image folder
+2. Set number of colors (default: 18)
+3. Click "Analyze Images"
+4. View color distribution bar chart
+5. Copy color data at bottom (for next step)
 
-**输出格式**:
+**Output Format**:
 ```
 [
-    ([R, G, B], 百分比),
+    ([R, G, B], percentage),
     ([255, 128, 64], 0.2534),
     ...
 ]
 ```
 
-### 3. Co-occurrence Analyzer (共现分析器)
+### 3. Co-occurrence Analyzer
 
-**用途**: 分析哪些颜色经常同时出现在同一张图片中
+**Purpose**: Analyze which colors frequently appear together
 
-**操作步骤**:
-1. 选择图片文件夹
-2. 粘贴颜色数据 (来自 Color Extractor)
-3. 点击 "Analyze Co-occurrence"
-4. 查看共现频率矩阵
+**Steps**:
+1. Select image folder
+2. Paste color data (from Color Extractor)
+3. Click "Analyze Co-occurrence"
+4. View co-occurrence frequency matrix
 
-**矩阵解读**: 
-- `matrix[i][j]` = 颜色 i 和颜色 j 同时出现的频率
-- 值越大表示这两种颜色越常一起出现
+**Matrix Interpretation**: 
+- `matrix[i][j]` = frequency of color i and j appearing together
+- Higher values indicate colors that often appear together
 
-### 4. Network Viewer (网络可视化)
+### 4. Network Viewer
 
-**用途**: 将颜色关系可视化为网络图
+**Purpose**: Visualize color relationships as a network graph
 
-**操作步骤**:
-1. 输入颜色数据 (格式: `R G B 大小`)
+**Steps**:
+1. Enter color data (format: `R G B Size`)
    ```
    255 128 64 25
    32 64 128 18
    ...
    ```
-2. 输入频率矩阵
-3. 设置阈值:
-   - **Base Threshold**: 显示边的最低权重
-   - **Highlight Threshold**: 红色高亮的权重阈值
-4. 点击 "Generate Network"
+2. Enter frequency matrix
+3. Set thresholds:
+   - **Base Threshold**: Minimum weight to show edge
+   - **Highlight Threshold**: Weight threshold for red highlight
+4. Click "Generate Network"
 
-### 5. Genetic Optimizer (遗传算法优化)
+### 5. Genetic Optimizer
 
-**用途**: 通过交互式进化找到最佳配色方案
+**Purpose**: Find optimal color schemes through interactive evolution
 
-**操作步骤**:
-1. 点击 "Open Image" 选择图片
-2. 设置参数:
-   - **Colors**: 配色方案中的颜色数量
-   - **Grid**: 每代显示的方案数量 (行×列)
-   - **Mutation**: 变异率
-   - **Elite Threshold**: 保留精英的分数阈值
-3. 为每个方案拖动滑块打分 (0-10)
-4. 点击 "Evolve Next Generation" 进化
-5. 重复打分和进化直到满意
-6. 点击 "Show Best" 查看最佳方案
+**Steps**:
+1. Click "Open Image" to select an image
+2. Set parameters:
+   - **Colors**: Number of colors in scheme
+   - **Grid**: Number of schemes per generation (rows × cols)
+   - **Mutation**: Mutation rate
+   - **Elite Threshold**: Score threshold for elite retention
+3. Rate each scheme using sliders (0-10)
+4. Click "Evolve Next Generation"
+5. Repeat rating and evolution until satisfied
+6. Click "Show Best" to view best scheme
 
-## 作为库使用
+## Use as Library
 
 ```python
 from color_analyzer.core import ColorExtractor, CooccurrenceAnalyzer
 from color_analyzer.visualization import ColorCardGenerator
 import numpy as np
 
-# 提取颜色
+# Extract colors
 extractor = ColorExtractor(n_colors=8, gray_threshold=1)
 colors, percentages = extractor.extract_from_image("image.jpg")
 
-# 生成色卡
+# Generate color card
 card_gen = ColorCardGenerator()
 card_gen.save_card(colors, percentages, "palette.png")
 
-# 分析共现
+# Analyze co-occurrence
 analyzer = CooccurrenceAnalyzer(distance_threshold=10)
 color_list = [np.array(c) for c in colors]
 matrix = analyzer.analyze_folder("images/", color_list)
 print(analyzer.format_matrix(matrix))
 ```
 
-## 项目结构
+## Project Structure
 
 ```
 chromapath/
@@ -211,27 +216,24 @@ chromapath/
 ├── requirements.txt        # Dependencies
 ├── setup.py               # Package setup
 ├── pyproject.toml         # Modern Python packaging
-├── README.md              # 中文文档
+├── README.md              # Chinese documentation
 ├── README_EN.md           # English documentation
 ├── LICENSE                # MIT License
 └── color_analyzer/        # Main package
     ├── __init__.py
     ├── core/              # Core algorithms
-    │   ├── __init__.py
     │   ├── image_processor.py   # Image loading & preprocessing
     │   ├── clustering.py        # K-Means color clustering
     │   ├── color_extractor.py   # High-level color extraction
     │   ├── cooccurrence.py      # Co-occurrence analysis
     │   └── genetic.py           # Genetic algorithm
     ├── visualization/     # Visualization tools
-    │   ├── __init__.py
     │   ├── color_card.py        # Color palette cards
     │   └── network_plot.py      # Network graphs
     └── ui/                # PyQt5 GUI applications
-        ├── __init__.py
         ├── main_window.py       # Main launcher
-        ├── palette_generator.py # Palette generation UI
-        ├── color_extractor.py   # Color extraction UI
+        ├── palette_generator.py
+        ├── color_extractor.py
         ├── cooccurrence_analyzer.py
         ├── network_viewer.py
         └── genetic_optimizer.py
@@ -259,9 +261,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- K-Means clustering powered by scikit-learn
-- GUI built with PyQt5
-- Visualization with Matplotlib
